@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   const fetchBooks = async () => {
-    const response = await axios.get('http://localhost:5000/books');
+    const response = await axios.get('https://librarybackend-il7f.onrender.com/books');
     setBooks(response.data);
   };
 
@@ -25,7 +25,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isEditing) {
-      await axios.put(`http://localhost:5000/books/${editId}`, form);
+      await axios.put(`https://librarybackend-il7f.onrender.com/books/${editId}`, form);
       setIsEditing(false);
     } else {
       await axios.post('http://localhost:5000/books', form);
@@ -35,7 +35,7 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/books/${id}`);
+    await axios.delete(`https://librarybackend-il7f.onrender.com/books/${id}`);
     fetchBooks();
   };
 
